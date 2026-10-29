@@ -9,7 +9,7 @@ const { GoogleGenAI } = require("@google/genai");
 const admin = require("firebase-admin");
 const serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT_JSON
   ? JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON)
-  : require("./serviceAccountKey.json.json");
+  : require("./serviceAccountKeyjson");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
