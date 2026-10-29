@@ -9,7 +9,7 @@ const { GoogleGenAI } = require("@google/genai");
 const admin = require("firebase-admin");
 const serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT_JSON
   ? JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON)
-  : require("./serviceAccountKeyjson");
+  : null;
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -50,8 +50,13 @@ app.use(cors({
 }));
 
 app.use(express.json({ limit: "2mb" }));
-
 if (!admin.apps.length) {
+  if (!serviceAccount) {
+    throw new Error(
+      "FIREBASE_SERVICE_ACCOUNT_JSON is missing in Render Environment Variables."
+    );
+  }
+
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
   });
