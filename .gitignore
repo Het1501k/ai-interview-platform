@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.netlify/
+
+backend/.env
+backend/.env.*
+frontend/.env
+frontend/.env.*
+
+# Private credentials
+backend/serviceAccountKey.json.json
+backend/*serviceAccount*.json
+
