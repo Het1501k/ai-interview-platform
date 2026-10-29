@@ -15,7 +15,7 @@ import {
 import "./InterviewHistory.css";
 import { auth } from "../firebase";
 
-const API_BASE = (import.meta.env.VITE_API_URL || "http://localhost:5000").replace(/\/$/, "");
+const API_BASE = (import.meta.env.VITE_API_URL || "https://ai-interview-platt.netlify.app/").replace(/\/$/, "");
 
 function formatDate(date) {
   if (!date) return "Date unavailable";
